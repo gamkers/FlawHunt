@@ -24,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/FlawHunt/">
       <div className="min-h-screen bg-gray-900 dark relative">
         {/* Global Spline Background - Only show on home page */}
         <Routes>
