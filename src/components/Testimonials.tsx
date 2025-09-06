@@ -66,7 +66,7 @@ const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-light-50/80 to-light-100/80 dark:from-dark-200/80 dark:to-dark-100/80 lg:bg-transparent">
+    <section ref={sectionRef} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-light-50/20 to-light-100/20 dark:from-dark-200/20 dark:to-dark-100/20 lg:bg-transparent">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -83,23 +83,10 @@ const Testimonials: React.FC = () => {
         {/* Mobile and Tablet View - Static Grid */}
         <div className="block lg:hidden">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-            {testimonials.map((testimonial, index) => {
-              const isVisible = visibleCards.includes(index);
-              const animationDelay = isVisible ? index * 200 : 0;
-              
-              return (
+            {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  ref={(el) => (cardRefs.current[index] = el)}
-                  data-index={index}
-                  className={`group p-6 sm:p-8 rounded-2xl border border-white/20 dark:border-white/10 hover:border-matrix-400/50 dark:hover:border-matrix-500/50 hover:shadow-2xl hover:shadow-matrix-500/20 hover:-translate-y-3 hover:scale-105 transition-all duration-700 ease-out bg-white/10 dark:bg-black/20 backdrop-blur-md hover:bg-white/20 dark:hover:bg-black/30 cursor-pointer transform ${
-                    isVisible 
-                      ? 'translate-y-0 opacity-100' 
-                      : 'translate-y-12 opacity-0'
-                  }`}
-                  style={{
-                    transitionDelay: `${animationDelay}ms`
-                  }}
+                  className="group p-6 sm:p-8 rounded-2xl border border-white/20 dark:border-white/10 hover:border-matrix-400/50 dark:hover:border-matrix-500/50 hover:shadow-2xl hover:shadow-matrix-500/20 hover:-translate-y-3 hover:scale-105 transition-all duration-700 ease-out bg-white/5 dark:bg-black/10 backdrop-blur-md hover:bg-white/10 dark:hover:bg-black/15 cursor-pointer transform translate-y-0 opacity-100"
                 >
               <div className="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-matrix-500 to-matrix-700 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-sm sm:text-base group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 ease-out shadow-lg group-hover:shadow-matrix-500/50">
@@ -124,15 +111,11 @@ const Testimonials: React.FC = () => {
                   <Star
                     key={starIndex}
                     className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current group-hover:text-yellow-300 group-hover:scale-125 transition-all duration-300"
-                    style={{
-                      transitionDelay: `${(animationDelay) + (starIndex * 100)}ms`
-                    }}
                   />
                 ))}
               </div>
                 </div>
-              );
-            })}
+            ))}
           </div>
         </div>
 
@@ -149,7 +132,7 @@ const Testimonials: React.FC = () => {
                   key={`first-${index}`}
                   ref={(el) => (cardRefs.current[index] = el)}
                   data-index={index}
-                  className={`group p-6 sm:p-8 rounded-2xl border border-white/20 dark:border-white/10 hover:border-matrix-400/50 dark:hover:border-matrix-500/50 hover:shadow-2xl hover:shadow-matrix-500/20 hover:-translate-y-3 hover:scale-105 transition-all duration-700 ease-out bg-white/10 dark:bg-black/20 backdrop-blur-md hover:bg-white/20 dark:hover:bg-black/30 cursor-pointer transform flex-shrink-0 w-80 ${
+                  className={`group p-6 sm:p-8 rounded-2xl border border-white/20 dark:border-white/10 hover:border-matrix-400/50 dark:hover:border-matrix-500/50 hover:shadow-2xl hover:shadow-matrix-500/20 hover:-translate-y-3 hover:scale-105 transition-all duration-700 ease-out bg-white/5 dark:bg-black/10 backdrop-blur-md hover:bg-white/10 dark:hover:bg-black/15 cursor-pointer transform flex-shrink-0 w-80 ${
                     isVisible 
                       ? 'translate-y-0 opacity-100' 
                       : 'translate-y-12 opacity-0'
@@ -195,7 +178,7 @@ const Testimonials: React.FC = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={`second-${index}`}
-                className="group p-6 sm:p-8 rounded-2xl border border-white/20 dark:border-white/10 hover:border-matrix-400/50 dark:hover:border-matrix-500/50 hover:shadow-2xl hover:shadow-matrix-500/20 hover:-translate-y-3 hover:scale-105 transition-all duration-700 ease-out bg-white/10 dark:bg-black/20 backdrop-blur-md hover:bg-white/20 dark:hover:bg-black/30 cursor-pointer flex-shrink-0 w-80 translate-y-0 opacity-100"
+                className="group p-6 sm:p-8 rounded-2xl border border-white/20 dark:border-white/10 hover:border-matrix-400/50 dark:hover:border-matrix-500/50 hover:shadow-2xl hover:shadow-matrix-500/20 hover:-translate-y-3 hover:scale-105 transition-all duration-700 ease-out bg-white/5 dark:bg-black/10 backdrop-blur-md hover:bg-white/10 dark:hover:bg-black/15 cursor-pointer flex-shrink-0 w-80 translate-y-0 opacity-100"
               >
                 <div className="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-matrix-500 to-matrix-700 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-sm sm:text-base group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 ease-out shadow-lg group-hover:shadow-matrix-500/50">
@@ -229,7 +212,7 @@ const Testimonials: React.FC = () => {
         </div>
 
         <div className="text-center mt-12 sm:mt-16">
-          <div className="inline-flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 bg-light-100/80 dark:bg-dark-100/80 backdrop-blur-sm px-4 sm:px-6 py-3 rounded-full border border-gray-200 dark:border-gray-700">
+          <div className="inline-flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 bg-light-100/20 dark:bg-dark-100/20 backdrop-blur-sm px-4 sm:px-6 py-3 rounded-full border border-gray-200 dark:border-gray-700">
             <div className="flex items-center space-x-2">
               <div className="flex -space-x-2">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-matrix-500 to-matrix-700 rounded-full flex items-center justify-center text-white text-xs font-bold">

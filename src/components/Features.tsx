@@ -97,7 +97,7 @@ const Features: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="features" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-light-50/80 dark:bg-dark-200/80 lg:bg-transparent relative overflow-hidden">
+    <section ref={sectionRef} id="features" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-light-50/20 dark:bg-dark-200/20 lg:bg-transparent relative overflow-hidden">
       {/* Glassmorphism background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-matrix-500/5 to-matrix-700/10 dark:from-matrix-400/10 dark:to-matrix-600/20 backdrop-blur-sm"></div>
       <div className="absolute top-20 left-10 w-72 h-72 bg-matrix-500/15 rounded-full blur-xl animate-pulse"></div>
@@ -126,7 +126,7 @@ const Features: React.FC = () => {
                 key={index}
                 ref={(el) => (cardRefs.current[index] = el)}
                 data-index={index}
-                className={`group p-6 sm:p-8 rounded-2xl border border-white/20 dark:border-white/10 hover:border-matrix-400/50 dark:hover:border-matrix-500/50 hover:shadow-2xl hover:shadow-matrix-500/20 hover:-translate-y-3 hover:scale-105 bg-white/10 dark:bg-black/20 backdrop-blur-md hover:bg-white/20 dark:hover:bg-black/30 cursor-pointer transform ${
+                className={`group p-6 sm:p-8 rounded-2xl border border-white/20 dark:border-white/10 hover:border-matrix-400/50 dark:hover:border-matrix-500/50 hover:shadow-2xl hover:shadow-matrix-500/20 hover:-translate-y-3 hover:scale-105 bg-white/5 dark:bg-black/10 backdrop-blur-md hover:bg-white/8 dark:hover:bg-black/15 cursor-pointer transform ${
                   isVisible 
                     ? 'translate-y-0 opacity-100' 
                     : 'translate-y-12 opacity-0'

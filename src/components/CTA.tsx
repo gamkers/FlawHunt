@@ -3,7 +3,7 @@ import { Download, ArrowRight, CheckCircle } from 'lucide-react';
 
 const CTA: React.FC = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-light-100/80 via-light-200/80 to-light-50/80 dark:from-dark-950/80 dark:via-dark-200/80 dark:to-dark-950/80 lg:bg-transparent relative overflow-hidden">
+    <section className="py-20 px-4 bg-gradient-to-br from-light-100/20 via-light-200/20 to-light-50/20 dark:from-dark-950/20 dark:via-dark-200/20 dark:to-dark-950/20 lg:bg-transparent relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-matrix-600/20 to-matrix-700/20 dark:from-matrix-400/10 dark:to-matrix-500/10"></div>
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-matrix-500/10 dark:bg-matrix-400/5 rounded-full blur-3xl"></div>

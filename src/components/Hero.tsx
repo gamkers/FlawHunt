@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
   };
   
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 bg-gradient-to-br from-light-50/80 to-light-100/80 dark:from-dark-200/80 dark:to-dark-950/80 lg:bg-transparent relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 sm:pt-24 bg-gradient-to-br from-light-50/40 to-light-100/40 dark:from-dark-200/40 dark:to-dark-950/40 lg:from-light-50/20 lg:to-light-100/20 lg:dark:from-dark-200/20 lg:dark:to-dark-950/20 relative overflow-hidden">
       {/* Content overlay */}
       <div className="w-full flex flex-col lg:flex-row justify-center lg:justify-between items-center relative z-10 max-w-7xl mx-auto gap-8 lg:gap-12">
         {/* Content */}
@@ -85,9 +85,9 @@ const Hero: React.FC = () => {
 
         {/* Terminal Mockup */}
         <div className="w-full max-w-2xl lg:max-w-lg lg:order-1 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.8s_forwards]">
-          <div className="bg-white/5 dark:bg-black/10 backdrop-blur-lg rounded-lg shadow-2xl border border-white/10 dark:border-gray-400/10 overflow-hidden transition-all duration-500 ease-out hover:shadow-[0_0_40px_rgba(34,197,94,0.3)] hover:border-green-400/30 hover:bg-white/8 dark:hover:bg-black/15 group">
+          <div className="bg-white/2 dark:bg-black/5 backdrop-blur-lg rounded-lg shadow-2xl border border-white/10 dark:border-gray-400/10 overflow-hidden transition-all duration-500 ease-out hover:shadow-[0_0_40px_rgba(34,197,94,0.3)] hover:border-green-400/30 hover:bg-white/4 dark:hover:bg-black/8 group">
             {/* Terminal Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-white/3 dark:bg-black/5 backdrop-blur-md border-b border-white/5 dark:border-gray-400/10 transition-all duration-300 group-hover:bg-white/5 dark:group-hover:bg-black/10 group-hover:border-green-400/20">
+            <div className="flex items-center justify-between px-4 py-3 bg-white/1 dark:bg-black/2 backdrop-blur-md border-b border-white/5 dark:border-gray-400/10 transition-all duration-300 group-hover:bg-white/3 dark:group-hover:bg-black/5 group-hover:border-green-400/20">
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
             </div>
             
             {/* Terminal Content */}
-            <div className="p-4 font-mono text-sm bg-white/2 dark:bg-black/5 backdrop-blur-md text-green-400 space-y-2 h-80 overflow-hidden transition-all duration-300 group-hover:bg-white/5 dark:group-hover:bg-black/8 group-hover:text-green-300">
+            <div className="p-4 font-mono text-sm bg-white/1 dark:bg-black/2 backdrop-blur-md text-green-400 space-y-2 h-80 overflow-hidden transition-all duration-300 group-hover:bg-white/3 dark:group-hover:bg-black/5 group-hover:text-green-300">
               <div className="text-matrix-400">$ flawhunt scan --target example.com</div>
               <div className="text-gray-300">🔍 Initializing security scan...</div>
               <div className="text-gray-300">📡 Discovering services...</div>

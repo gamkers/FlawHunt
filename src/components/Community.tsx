@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
+import SplineViewer from './SplineViewer';
 import { 
   MessageCircle, 
   Youtube, 
@@ -245,15 +246,21 @@ const Community: React.FC = () => {
       {/* Spline 3D Background */}
       <div className="fixed inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <spline-viewer 
+          <SplineViewer 
             url="https://prod.spline.design/rV6Jmc853U2mtqN5/scene.splinecode"
-            className="w-full h-full opacity-20 dark:opacity-10"
+            className="w-full h-full"
             style={{position: 'absolute', width: '120%', height: '120%', left: '-10%', top: '-10%', pointerEvents: 'none', zIndex: 1}}
-          ></spline-viewer>
+            opacity="40"
+            darkOpacity="25"
+            enableOnMobile={true}
+            quality="low"
+            lazy={true}
+            fallbackBackground="bg-gradient-to-br from-matrix-500/5 to-matrix-700/10"
+          />
         </div>
       </div>
       {/* Hero Section */}
-        <section className={`min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 ${isDark ? 'bg-black/30' : 'bg-white/30'} relative z-10`}>
+        <section className={`min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 ${isDark ? 'bg-black/10' : 'bg-white/10'} relative z-10`}>
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center space-x-2 mb-6">
             <Zap className={`w-8 h-8 ${isDark ? 'text-green-400' : 'text-green-600'}`} />
