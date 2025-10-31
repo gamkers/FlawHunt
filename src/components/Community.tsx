@@ -99,7 +99,7 @@ const Community: React.FC = () => {
     let typeInterval: number;
     let cursorInterval: number;
     
-    typeInterval = setInterval(() => {
+    typeInterval = window.setInterval(() => {
       if (currentIndex <= fullText.length) {
         setTypewriterText(fullText.slice(0, currentIndex));
         currentIndex++;

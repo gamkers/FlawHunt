@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Terminal } from 'lucide-react';
+import { Menu, X, Terminal, User, LogOut } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useAuthStore } from '../store/authStore';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { user, signOut } = useAuthStore();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,12 +104,41 @@ const Header: React.FC = () => {
             Contact
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-matrix-600 dark:bg-matrix-400 transition-all duration-300 group-hover:w-full"></span>
           </button>
-          <button 
-            onClick={handleGetStartedClick}
-            className="bg-gradient-to-r from-matrix-600 to-matrix-700 text-white px-6 py-2 rounded-full hover:shadow-lg hover:shadow-matrix-500/25 transform hover:scale-105 transition-all duration-200"
-          >
-            Get Started
-          </button>
+          
+          {/* Authentication buttons */}
+          {user ? (
+            <div className="flex items-center space-x-4">
+              <Link
+                to="/dashboard"
+                className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-matrix-600 dark:hover:text-matrix-400 transition-colors duration-200"
+              >
+                <User className="w-4 h-4" />
+                <span>Dashboard</span>
+              </Link>
+              <button
+                onClick={signOut}
+                className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-red-500 transition-colors duration-200"
+              >
+                <LogOut className="w-4 h-4" />
+                <span>Sign Out</span>
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center space-x-3">
+              <Link
+                to="/login"
+                className="text-gray-700 dark:text-gray-300 hover:text-matrix-600 dark:hover:text-matrix-400 transition-colors duration-200"
+              >
+                Sign In
+              </Link>
+              <Link
+                to="/signup"
+                className="bg-gradient-to-r from-matrix-600 to-matrix-700 text-white px-6 py-2 rounded-full hover:shadow-lg hover:shadow-matrix-500/25 transform hover:scale-105 transition-all duration-200"
+              >
+                Sign Up
+              </Link>
+            </div>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -154,15 +185,46 @@ const Header: React.FC = () => {
                 Contact
               </button>
 
-              <button 
-                onClick={() => {
-                  handleGetStartedClick();
-                  setIsMenuOpen(false);
-                }}
-                className="bg-gradient-to-r from-matrix-600 to-matrix-700 text-white px-6 py-3 rounded-full hover:shadow-lg hover:shadow-matrix-500/25 transform hover:scale-105 transition-all duration-200"
-              >
-                Get Started
-              </button>
+              {/* Mobile Authentication buttons */}
+              {user ? (
+                <>
+                  <Link
+                    to="/dashboard"
+                    className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-matrix-600 dark:hover:text-matrix-400 transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <User className="w-4 h-4" />
+                    <span>Dashboard</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      signOut();
+                      setIsMenuOpen(false);
+                    }}
+                    className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-red-500 transition-colors duration-200 text-left"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>Sign Out</span>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="text-gray-700 dark:text-gray-300 hover:text-matrix-600 dark:hover:text-matrix-400 transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="bg-gradient-to-r from-matrix-600 to-matrix-700 text-white px-6 py-3 rounded-full hover:shadow-lg hover:shadow-matrix-500/25 transform hover:scale-105 transition-all duration-200 text-center"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         )}
