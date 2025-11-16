@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
-import SplineViewer from './SplineViewer';
 import { 
   MessageCircle, 
   Youtube, 
@@ -111,7 +110,7 @@ const Community: React.FC = () => {
     }, 100);
 
     // Cursor blinking effect - only while typing
-    cursorInterval = setInterval(() => {
+    cursorInterval = window.setInterval(() => {
       setShowCursor(prev => !prev);
     }, 500);
 
@@ -243,20 +242,23 @@ const Community: React.FC = () => {
 
   return (
     <div className={`${isDark ? 'bg-black' : 'bg-white'} relative`}>
-      {/* Spline 3D Background */}
+      {/* Animated Background */}
       <div className="fixed inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <SplineViewer 
-            url="https://prod.spline.design/rV6Jmc853U2mtqN5/scene.splinecode"
-            className="w-full h-full"
-            style={{position: 'absolute', width: '120%', height: '120%', left: '-10%', top: '-10%', pointerEvents: 'none', zIndex: 1}}
-            opacity="40"
-            darkOpacity="25"
-            enableOnMobile={true}
-            quality="low"
-            lazy={true}
-            fallbackBackground="bg-gradient-to-br from-matrix-500/5 to-matrix-700/10"
-          />
+          {/* Floating particles animation */}
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{top: '20%', left: '10%', animationDelay: '0s'}}></div>
+            <div className="absolute w-1 h-1 bg-blue-400 rounded-full animate-pulse" style={{top: '40%', left: '80%', animationDelay: '1s'}}></div>
+            <div className="absolute w-3 h-3 bg-purple-400 rounded-full animate-pulse" style={{top: '60%', left: '20%', animationDelay: '2s'}}></div>
+            <div className="absolute w-1 h-1 bg-green-400 rounded-full animate-pulse" style={{top: '80%', left: '70%', animationDelay: '3s'}}></div>
+            <div className="absolute w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{top: '30%', left: '50%', animationDelay: '4s'}}></div>
+            <div className="absolute w-1 h-1 bg-purple-400 rounded-full animate-pulse" style={{top: '70%', left: '90%', animationDelay: '5s'}}></div>
+          </div>
+          {/* Gradient background */}
+          <div className={`absolute inset-0 ${isDark 
+            ? 'bg-gradient-to-br from-green-900/10 via-black to-blue-900/10' 
+            : 'bg-gradient-to-br from-green-100/20 via-white to-blue-100/20'
+          }`}></div>
         </div>
       </div>
       {/* Hero Section */}

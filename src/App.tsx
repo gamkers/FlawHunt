@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { PerformanceProvider } from './contexts/PerformanceContext';
 import { useAuthStore } from './store/authStore';
 import Header from './components/Header';
@@ -10,7 +10,6 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import Documentation from './components/Documentation';
 import Community from './components/Community';
-import SplineViewer from './components/SplineViewer';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import DashboardPage from './pages/DashboardPage';
@@ -44,7 +43,7 @@ function App() {
         if (success) {
           console.log('OAuth callback handled successfully');
           // Force navigation to /dashboard after successful OAuth
-          window.location.href = '/FlawHunt/dashboard';
+          window.location.href = '/#/dashboard';
         }
       });
     } else {
@@ -67,25 +66,32 @@ function App() {
 
   return (
     <PerformanceProvider>
-      <Router basename="/FlawHunt/">
+      <Router>
         <div className="min-h-screen bg-gray-900 dark relative">
-          {/* Global Spline Background - Only show on home page */}
+          {/* Animated Background - Only show on home page */}
           <Routes>
           <Route path="/" element={
             <>
+              {/* Animated Background */}
               <div className="fixed inset-0 z-10 overflow-hidden">
-                <div className="absolute inset-0 overflow-hidden">
-                  <SplineViewer 
-                    url="https://prod.spline.design/rV6Jmc853U2mtqN5/scene.splinecode"
-                    className="w-full h-full"
-                    style={{position: 'absolute', width: '150%', height: '150%', left: '-35%', top: '-30%', transform: 'scale(1.0)', zIndex: 1}}
-                    opacity="60"
-                    darkOpacity="40"
-                    enableOnMobile={true}
-                    quality={isMobile ? 'low' : 'medium'}
-                    lazy={true}
-                    fallbackBackground="bg-gradient-to-br from-matrix-500/10 to-matrix-700/20"
-                  />
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-gray-900 to-blue-900/20">
+                  {/* Floating particles animation */}
+                  <div className="absolute inset-0">
+                    {[...Array(20)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute w-1 h-1 bg-emerald-400/30 rounded-full animate-pulse"
+                        style={{
+                          left: `${Math.random() * 100}%`,
+                          top: `${Math.random() * 100}%`,
+                          animationDelay: `${Math.random() * 3}s`,
+                          animationDuration: `${3 + Math.random() * 2}s`
+                        }}
+                      />
+                    ))}
+                  </div>
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-gray-900/40" />
                 </div>
               </div>
               

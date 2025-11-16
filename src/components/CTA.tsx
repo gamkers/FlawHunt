@@ -1,7 +1,19 @@
 import React from 'react';
 import { Download, ArrowRight, CheckCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const CTA: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleDownloadClick = () => {
+    // Navigate to signup page for download access
+    navigate('/signup');
+  };
+
+  const handleViewDocsClick = () => {
+    // Navigate to documentation page
+    navigate('/docs');
+  };
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-light-100/20 via-light-200/20 to-light-50/20 dark:from-dark-950/20 dark:via-dark-200/20 dark:to-dark-950/20 lg:bg-transparent relative overflow-hidden">
       {/* Background Effects */}
@@ -24,7 +36,10 @@ const CTA: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="group bg-matrix-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-matrix-700 transform hover:scale-105 transition-all duration-300 flex items-center space-x-3 shadow-xl hover:shadow-2xl">
+            <button 
+              onClick={handleDownloadClick}
+              className="group bg-matrix-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-matrix-700 transform hover:scale-105 transition-all duration-300 flex items-center space-x-3 shadow-xl hover:shadow-2xl"
+            >
               <Download className="w-6 h-6 group-hover:animate-bounce" />
               <span>Download Now</span>
               <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -32,7 +47,10 @@ const CTA: React.FC = () => {
               </div>
             </button>
             
-            <button className="border-2 border-gray-300 dark:border-white/20 text-gray-700 dark:text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-100 dark:hover:bg-white/5 hover:border-gray-400 dark:hover:border-white/30 transition-all duration-300">
+            <button 
+              onClick={handleViewDocsClick}
+              className="border-2 border-gray-300 dark:border-white/20 text-gray-700 dark:text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-100 dark:hover:bg-white/5 hover:border-gray-400 dark:hover:border-white/30 transition-all duration-300"
+            >
               View Documentation
             </button>
           </div>
